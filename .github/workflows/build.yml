@@ -30,11 +30,17 @@ jobs:
         echo "PS3DEV=${GITHUB_WORKSPACE}/ps3dev" >> $GITHUB_ENV
         echo "PSL1GHT=${GITHUB_WORKSPACE}/ps3dev" >> $GITHUB_ENV
 
-    - name: Install OpenSSL 1.1 Runtime
+    - name: Install OpenSSL 1.1 Runtime and Python 2.7
       run: |
         echo "Instalando dependências legacy do OpenSSL 1.1..."
         wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb -O libssl1.1.deb
-        sudo dpkg -i libssl1.1.deb     
+        sudo dpkg -i libssl1.1.deb
+        
+        # Instala python2 e cria o symlink 'python2.7'
+        sudo apt-get install -y python2 || true
+        sudo ln -sf /usr/bin/python2 /usr/bin/python2.7
+
+
 
     - name: Install dbglogger
       working-directory: dbglogger
