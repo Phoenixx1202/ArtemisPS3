@@ -34,7 +34,11 @@ jobs:
     - name: Install Python 2.7
       run: |
         sudo apt-get update
-        sudo apt-get install -y -t focal python2.7
+        sudo apt-get install -y software-properties-common
+        sudo add-apt-repository ppa:deadsnakes/ppa -y
+        sudo apt-get update
+        sudo apt-get install -y python2.7
+
 
 
 
