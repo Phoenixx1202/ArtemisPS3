@@ -33,12 +33,9 @@ jobs:
 
     - name: Install Python 2.7
       run: |
-        echo "Configurando dependências legadas: OpenSSL 1.1 e Python 2.7..."
-        echo 'deb http://archive.ubuntu.com/ubuntu focal main universe' | sudo tee -a /etc/apt/sources.list
-        echo 'deb http://security.ubuntu.com/ubuntu focal-security main universe' | sudo tee -a /etc/apt/sources.list
         sudo apt-get update
-        sudo apt-get install -y python2 || true
-        sudo ln -sf /usr/bin/python2 /usr/bin/python2.7
+        sudo apt-get install -y -t focal python2.7
+
 
 
     
